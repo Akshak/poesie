@@ -1,0 +1,48 @@
+body {
+            background-color:pink; 
+            text-align: center;/* centra orizzontalmente */
+            font-family: Georgia, serif;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain; /* mostra tutta l'immagine */
+    background-color: pink;   /* colore dello spazio vuoto */
+        }
+
+        h1 {
+            color: #b76e79;
+            margin-top: 50px;
+            
+        }
+
+        .poesia {
+            width: 60%;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #fff8f2;
+            border: 4px double #c49a6c;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            font-size: 22px;
+            line-height: 1.8;
+        }
+
+        /* Decorazione sopra e sotto */
+        .poesia::before {
+            content: "❀ ❀ ❀";
+            display: block;
+            margin-bottom: 15px;
+            color: #c49a6c;
+        }
+
+        .poesia::after {
+            content: "❀ ❀ ❀";
+            display: block;
+            margin-top: 15px;
+            color: #c49a6c;
+        }
+
+        /* Effetto al passaggio del mouse */
+        .poesia:hover {
+            transform: scale(1.03);
+            transition: 0.3s;
+        }

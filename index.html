@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Carosello Poetico</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="carousel-container">
+        <button class="nav prev">&#10094;</button>
+        
+        <div class="carousel">
+            <img src="img/img_1.jpg" class="carousel-img" data-index="0">
+            <img src="img/img_2.jpg" class="carousel-img" data-index="1">
+            <img src="img/img_3.jpg" class="carousel-img" data-index="2">
+            <img src="img/img_4.jpg" class="carousel-img" data-index="3">
+            <img src="img/img_5.jpg" class="carousel-img" data-index="4">
+            <img src="img/img_6.jpg" class="carousel-img" data-index="5">
+            <img src="img/img_7.jpg" class="carousel-img" data-index="6">
+            <img src="img/img_8.jpg" class="carousel-img" data-index="7">
+            <img src="img/img_9.jpg" class="carousel-img" data-index="8">
+            <img src="img/img_10.jpg" class="carousel-img" data-index="9">
+        </div>
+
+        <button class="nav next">&#10095;</button>
+    </div>
+
+    <div class="poetry-box">
+        <p id="poesia"></p>
+    </div>
+
+    <script>
+        const images = document.querySelectorAll(".carousel-img");
+        const poesia = document.getElementById("poesia");
+        const prevBtn = document.querySelector(".prev");
+        const nextBtn = document.querySelector(".next");
+        const carousel = document.querySelector(".carousel");
+
+        let scrollAmount = 0;
+
+        const poesie = [
+            "Sotto cieli d'ambra il vento sussurra,\ntra sogni che sfiorano l'eterno.",
+            "La luna danza sopra il mare,\ncarezza silenziosa dell'anima.",
+            "Tra foglie dorate scivola il tempo,\ncome un ricordo che non vuole svanire.",
+            "Ombre leggere attraversano il cuore,\nlasciando scie di luce.",
+            "Nel silenzio nasce un battito,\nun eco di stelle lontane.",
+            "Il sole dipinge promesse,\nsu tele di nuvole rosate.",
+            "Tra passi lenti e respiri profondi,\nsi nasconde l'infinito.",
+            "Pioggia sottile accarezza i pensieri,\ncome note su vetro antico.",
+            "Ogni alba racconta una storia,\ndi speranze mai sopite.",
+            "Nel crepuscolo arde un sogno,\nfragile e immortale."
+        ];
+
+images.forEach((img, index) => {
+    img.addEventListener("click", () => {
+        document.body.style.backgroundImage = `url('${img.src}')`;
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundSize = "cover";
+        document.body.style.backgroundPosition = "center";
+
+        poesia.innerText = poesie[index];
+    });
+});
+
+        nextBtn.addEventListener("click", () => {
+            scrollAmount += 200;
+            carousel.scrollTo({
+                left: scrollAmount,
+                behavior: "smooth"
+            });
+        });
+
+        prevBtn.addEventListener("click", () => {
+            scrollAmount -= 200;
+            carousel.scrollTo({
+                left: scrollAmount,
+                behavior: "smooth"
+            });
+        });
+    </script>
+
+</body>
+</html>
